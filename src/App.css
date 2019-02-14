@@ -21,12 +21,29 @@
 .App-link {
   color: #61dafb;
 }
+svg {
+  justify-content: left;
+  width: 100%;
+}
+.filled-heading {
+  text-transform: uppercase;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 3em;
+  line-height: 0.9;
+  font-weight: bolder;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Animate the background shapes */
+.background path , .background rect{
+  /*animation: pulse 4s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite;*/
+
+  /* Necessary to keep the SVG objects in place while scaling */
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+@keyframes pulse {
+  /* Rotating it along with the scale makes it a little bit more fancy */
+  0%, 100% { transform: scale(0) rotate(33deg); }
+  35%, 65% { transform: scale(1) rotate(0deg); }
 }
