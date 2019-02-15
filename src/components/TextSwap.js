@@ -9,9 +9,9 @@ class TextSwap extends React.Component {
     const {text, duration, blend, height, colors, ...props} = this.props;
     const steps = text.length;
     return (
-      <StackBase>
+      <StackBase height={height}>
         {text.map((text, index) => (
-          <Stackable order={index + 1}>
+          <Stackable key={index} order={index + 1}>
             <BlobTextRand
               duration={duration}
               steps={steps}
@@ -19,7 +19,7 @@ class TextSwap extends React.Component {
               blend={blend}
               height={height}
               text={text}
-              colors={colors[Math.floor(Math.random() * colors.length)]}/>
+              colors={colors && colors[Math.floor(Math.random() * colors.length)]}/>
           </Stackable>)
         )}
       </StackBase>

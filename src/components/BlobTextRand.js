@@ -36,11 +36,11 @@ class BlobTextRand extends React.Component {
 
         <clipPath id={this.id} className="filled-heading">
           {this.props.text.map((row, index) => (
-            <text x="50%" textAnchor="middle" fontSize={225/this.props.text.length} y={(index + 1) * 225/this.props.text.length - 10}>{row}</text>
+            <text  key={index} x="50%" textAnchor="middle" fontSize={`calc((2em + 8vw)/${row.length > 10 ? (row.length/(5)) : this.props.text.length})`} y={(index + 1) * 225/this.props.text.length - 10}>{row}</text>
           ))}
         </clipPath>
 
-        <g className="background" clip-path={`url(#${this.id})`} >
+        <g className="background" clipPath={`url(#${this.id})`} >
           <PathWithRandom {...this.props}  d="m445.62-26.657c-19.58 20.137-3.6309 59.698 27.377 73.932 31.007 14.234 67.049-14.123 72.974-27.02 5.9253-12.875-13.142-59.988-24.058-65.022-10.937-5.012-42.19-16.996-76.294 18.11z" stroke-width=".22275" fill={generateColor(this.props.colors).next().value}/>
           <PathWithRandom {...this.props}  d="m449.78 166.4c20.137 19.58 59.698 3.6309 73.932-27.377 14.234-31.007-14.123-67.071-27.02-72.974-12.875-5.9253-3.5418 38.759-20.382 59.364-15.704 19.201-61.636 6.8608-26.53 40.987z" stroke-width=".22275" fill={generateColor(this.props.colors).next().value}/>
           <PathWithRandom {...this.props}  d="m299.4 7.4916c15.704-7.5959-10.269-35.128-31.297-38.002-20.983-2.8513-44.395 14.835-51.969 26.597-10.848 16.863 2.3389 30.785 9.7344 31.787 7.3954 1.0024 53.238-10.581 73.531-20.382z" stroke-width=".22275" fill={generateColor(this.props.colors).next().value}/>
